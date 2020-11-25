@@ -12,6 +12,6 @@ u = User.create(email: "test@test.com", password: "password", password_confirmat
 10.times do
   Board.create(
     name: Faker::Game.title,
-    user_id: u.id,
+    user_id: 1,
   )
 end

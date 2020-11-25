@@ -1,0 +1,10 @@
+<h1>Lists</h1>
+
+<%= link_to "New List", new_board_list_path, class: "ui purple button" %>
+<% @lists.each do |list| %>
+  <div>
+    <h3><%= link_to list.name, board_list_path(@board, list) %></h3>
+  </div>
+<% end %>
+
+

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   #devise needs root
   root "boards#index"
 
-  resources :boards
+  resources :boards do
+    resources :lists
+  end
 end

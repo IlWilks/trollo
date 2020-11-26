@@ -2,3 +2,5 @@
 <%= link_to "Edit", edit_list_card_path(@list, @card), class: "ui orange button" %>
 <%= link_to "Delete", [@list, @card], method: :delete, class: "ui red button" %>
 </h1>
+
+<p><%= @card.body %></p>

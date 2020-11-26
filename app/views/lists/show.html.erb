@@ -2,4 +2,4 @@
 <%= link_to "Edit", edit_board_list_path(@board, @list), class: "ui orange button" %>
 <%= link_to "Delete", [@board, @list], method: :delete, class: "ui red button" %>
 </h1>
-<p>There will be stuff with cards here</p>
+<%= link_to "Cards", list_cards_path(@list) %>

@@ -8,7 +8,7 @@
 require "faker"
 
 u = User.create(email: "test@test.com", password: "password", password_confirmation: "password")
-
+User.create(email: "test1@test.com", password: "password", password_confirmation: "password")
 10.times do
   Board.create(
     name: Faker::Game.title,

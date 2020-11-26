@@ -1,0 +1,8 @@
+<h1>Cards</h1>
+
+<%= link_to "New Card", new_list_card_path, class: "ui purple button" %>
+<% @cards.each do |card| %>
+  <div>
+    <h3><%= link_to card.name, list_card_path(@list, card) %></h3>
+  </div>
+<% end %>

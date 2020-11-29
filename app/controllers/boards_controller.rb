@@ -1,10 +1,11 @@
 class BoardsController < ApplicationController
+  before_action :set_board, only: [:show, :edit, :update, :destroy]
+
   def index
-    @boards = current_user.boards.all
+    @boards = Board.all_boards(current_user.id)
   end
 
   def show
-    @board = current_user.boards.find(params[:id])
   end
 
   def new
@@ -12,12 +13,8 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @customer = current_user.boards.create(boards_params)
-    if @customer.save
-      redirect_to boards_path
-    else
-      render :new
-    end
+    Board.create_board(boards_params, current_user.id)
+    redirect_to boards_path
   end
 
   def edit
@@ -25,21 +22,23 @@ class BoardsController < ApplicationController
   end
 
   def update
-    @board = current_user.boards.find(params[:id])
-    if @board.update
-      redirect_to boards_path
-    else
-      render :edit
-    end
+    Board.update_board(@board.id, boards_params)
+    redirect_to boards_path
   end
 
   def destroy
-    @board = current_user.boards.find(params[:id])
     @board.destroy
     redirect_to boards_path
   end
 
   private
+
+  def set_board
+    def set_board
+      #SELECT single record
+      @board = Board.single_board(current_user.id, params[:id])
+    end
+  end
 
   def boards_params
     params.require(:board).permit(:name)

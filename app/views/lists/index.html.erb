@@ -1,10 +1,20 @@
-<h1>Lists</h1>
-
-<%= link_to "New List", new_board_list_path, class: "ui purple button" %>
-<% @lists.each do |list| %>
-  <div>
-    <h3><%= link_to list.name, board_list_path(@board, list) %></h3>
+<h1>Lists
+  <div class="ui animated button" tabindex = "0">
+    <div class="visible content">
+    <i class="plus icon"></i>
+    </div>
+    <div class = "hidden content">
+      <%= link_to "New List", new_board_list_path %>
+    </div>
   </div>
-<% end %>
-
-
+  
+</h1>
+<div class= "ui relaxed grid container">
+  <% @lists.each do |list| %>
+    <div class="eight wide column">
+      <div class="ui segment" style="background-color: #4bc437;color: #FFFFFF">
+        <h3><%= link_to list.name, board_list_path(@board, list), class: "link_color" %></h3>
+      </div>
+    </div>
+  <% end %>
+</div>

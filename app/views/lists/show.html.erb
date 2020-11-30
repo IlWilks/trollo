@@ -1,5 +1,19 @@
-<h1>List
-<%= link_to "Edit", edit_board_list_path(@board, @list), class: "ui orange button" %>
-<%= link_to "Delete", [@board, @list], method: :delete, class: "ui red button" %>
+<h1><%= @list.name %>
+<div class="ui animated button" style="background-color: #ffbf00;color: #FFFFFF;" tabindex = "0">
+  <div class="visible content">
+    <i class="pencil alternate icon"></i>
+  </div>
+  <div class = "hidden content">
+    <%= link_to "Edit", edit_board_list_path(@board, @list) %>
+  </div>
+</div>
+<div class="ui animated button" style="background-color: #f41414;color: #FFFFFF;" tabindex = "0">
+  <div class="visible content">
+    <i class="trash icon"></i>
+  </div>
+  <div class = "hidden content">
+    <%= link_to "Delete", [@board, @list], method: :delete %>
+  </div>
+</div>
 </h1>
 <%= link_to "Cards", list_cards_path(@list) %>

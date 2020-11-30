@@ -1,6 +1,21 @@
 <h1>Card
-<%= link_to "Edit", edit_list_card_path(@list, @card), class: "ui orange button" %>
-<%= link_to "Delete", [@list, @card], method: :delete, class: "ui red button" %>
+<div class="ui animated button" style="background-color: #ffbf00;color: #FFFFFF;" tabindex = "0">
+  <div class="visible content">
+    <i class="pencil alternate icon"></i>
+  </div>
+  <div class = "hidden content">
+    <%= link_to "Edit", edit_list_card_path(@list, @card) %>
+  </div>
+</div>
+<div class="ui animated button" style="background-color: #f41414;color: #FFFFFF;" tabindex = "0">
+  <div class="visible content">
+    <i class="trash icon"></i>
+  </div>
+  <div class = "hidden content">
+    <%= link_to "Delete", [@list, @card], method: :delete %>
+  </div>
+</div>
 </h1>
 
 <p><%= @card.body %></p>
+

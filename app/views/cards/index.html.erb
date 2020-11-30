@@ -1,8 +1,11 @@
 <h1>Cards</h1>
 
 <%= link_to "New Card", new_list_card_path, class: "ui purple button" %>
+<div class= "ui relaxed grid container">
 <% @cards.each do |card| %>
-  <div class="ui raised segment">
-    <h3><%= link_to card.name, list_card_path(@list, card) %></h3>
+  <div class="eight wide column">
+  <div class="ui segment" style="background-color: #4bc437;color: #FFFFFF">
+    <h3><%= link_to card.name, list_card_path(@list, card), class: "link_color" %></h3>
+  </div>
   </div>
 <% end %>
